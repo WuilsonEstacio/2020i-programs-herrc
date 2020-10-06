@@ -1,4 +1,7 @@
 # esto es un comentario
+# @: es un target y se coloca como $@
+# ^: todas las dependencias
+# <: la primeda dependencia y se coloca como $<
 
 all: datos.txt
 sumas.x: sumas.cpp
@@ -6,3 +9,9 @@ sumas.x: sumas.cpp
 
 datos.txt: sumas.x
 	   ./sumas.x > datos.txt
+
+fig.pdf: plot.pu datos.txt
+	 python3 plot.py
+
+clean:
+	rm -f a.out *.x datos.txt
